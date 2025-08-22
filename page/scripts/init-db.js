@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { initializeDatabase, testConnection } from '../src/lib/database.js';
+import { initializeDatabase, testConnection } from '../src/lib/server/database.js';
 
 // Load environment variables
 config();

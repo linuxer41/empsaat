@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { tariffService } from '$lib/services';
+import { tariffService } from '$lib/server/services';
 import type { ApiResponse } from '$lib/types';
 
 export const GET: RequestHandler = async ({ url }) => {

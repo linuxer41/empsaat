@@ -8,7 +8,7 @@ import type {
   CreateConnectionRequestRequest,
   CreateProblemReportRequest,
   CreateQuestionRequest
-} from './types';
+} from '../types';
 
 // Utility function to generate ticket numbers
 function generateTicketNumber(prefix: string): string {

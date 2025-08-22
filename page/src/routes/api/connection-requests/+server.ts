@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { connectionRequestService } from '$lib/services';
+import { connectionRequestService } from '$lib/server/services';
 import type { ApiResponse, CreateConnectionRequestRequest } from '$lib/types';
 
 export const POST: RequestHandler = async ({ request }) => {

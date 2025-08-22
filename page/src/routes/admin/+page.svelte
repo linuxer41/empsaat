@@ -102,7 +102,7 @@
     <header class="dashboard-header">
       <h1>Panel de Administración</h1>
       <button on:click={loadData} class="refresh-btn" disabled={loading}>
-        <RefreshCw size={20} class:rotate={loading} />
+        <RefreshCw size={20}/>
         Actualizar
       </button>
     </header>
