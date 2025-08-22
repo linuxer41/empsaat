@@ -1,0 +1,40 @@
+# Stage 1: Build stage
+FROM oven/bun AS build
+
+WORKDIR /app
+
+# Cache packages installation
+COPY package.json bun.lock ./
+RUN bun install
+
+# Copy source code
+COPY ./src ./src
+
+ENV NODE_ENV=production
+
+# Build the application
+RUN bun build \
+    --compile \
+    --minify-whitespace \
+    --minify-syntax \
+    --target bun \
+    --outfile server \
+    ./src/index.ts
+
+# Stage 2: Runtime stage with Chrome/Chromium for Puppeteer
+FROM debian:bullseye-slim AS runtime
+
+WORKDIR /app
+
+# Copy built application from the build stage
+COPY --from=build /app/server /app/server
+
+# Set environment variables
+ENV NODE_ENV=production
+
+# Expose the port
+# EXPOSE 3000
+
+# Run the application
+CMD ["./server"]
+EXPOSE 3000

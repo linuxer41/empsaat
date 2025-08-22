@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(59,130,246,0.1);stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgba(96,165,250,0.05);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(219,234,254,0.1);stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bubbleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(59,130,246,0.3);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(96,165,250,0.1);stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="circleGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:rgba(16,185,129,0.1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(16,185,129,0.02);stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#waterGradient)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="150" r="60" fill="url(#circleGradient)" opacity="0.6"/>
+  <circle cx="1100" cy="200" r="80" fill="url(#circleGradient)" opacity="0.4"/>
+  <circle cx="200" cy="600" r="40" fill="url(#circleGradient)" opacity="0.5"/>
+  <circle cx="1000" cy="650" r="70" fill="url(#circleGradient)" opacity="0.3"/>
+  
+  <!-- Water droplets -->
+  <g opacity="0.7">
+    <path d="M300 100C300 100 320 120 320 140C320 150 315 160 310 160C305 160 300 150 300 140C300 120 300 100 300 100Z" fill="url(#bubbleGradient)"/>
+    <path d="M900 120C900 120 910 135 910 150C910 157 907 163 903 163C899 163 896 157 896 150C896 135 900 120 900 120Z" fill="url(#bubbleGradient)"/>
+    <path d="M150 400C150 400 165 415 165 430C165 437 162 443 158 443C154 443 151 437 151 430C151 415 150 400 150 400Z" fill="url(#bubbleGradient)"/>
+    <path d="M1050 450C1050 450 1065 465 1065 480C1065 487 1062 493 1058 493C1054 493 1051 487 1051 480C1051 465 1050 450 1050 450Z" fill="url(#bubbleGradient)"/>
+    <path d="M400 700C400 700 410 715 410 730C410 737 407 743 403 743C399 743 396 737 396 730C396 715 400 700 400 700Z" fill="url(#bubbleGradient)"/>
+  </g>
+  
+  <!-- Geometric shapes -->
+  <g opacity="0.4">
+    <polygon points="50,300 80,280 110,300 80,320" fill="rgba(245,158,11,0.2)"/>
+    <polygon points="1150,350 1180,330 1210,350 1180,370" fill="rgba(16,185,129,0.2)"/>
+    <polygon points="80,500 110,480 140,500 110,520" fill="rgba(59,130,246,0.2)"/>
+  </g>
+  
+  <!-- Wave patterns -->
+  <path d="M0 750 Q300 730 600 750 T1200 750 L1200 800 L0 800 Z" fill="rgba(59,130,246,0.05)"/>
+  <path d="M0 780 Q400 760 800 780 T1200 780 L1200 800 L0 800 Z" fill="rgba(16,185,129,0.05)"/>
+</svg>
