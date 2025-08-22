@@ -2,7 +2,6 @@
   import SecondaryHeader from '$lib/components/SecondaryHeader.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Droplets, FileText, Clock, CheckCircle, MapPin, Calculator, Phone } from 'lucide-svelte';
-  import { connectionRequestsApi } from '$lib/api';
 
   let formData = {
     nombre: '',
@@ -17,52 +16,30 @@
 
   let submitted = false;
   let loading = false;
-  let error = '';
-  let ticketNumber = '';
 
-  async function handleSubmit() {
+  function handleSubmit() {
     loading = true;
-    error = '';
     
-    try {
-      const response = await connectionRequestsApi.create({
-        nombre: formData.nombre,
-        telefono: formData.telefono,
-        email: formData.email || undefined,
-        direccion: formData.direccion,
-        tipo_conexion: formData.tipoConexion,
-        tipo_propiedad: formData.tipoPropiedad,
-        comentarios: formData.comentarios || undefined
-      });
-
-      if (response.success && response.data) {
-        ticketNumber = (response.data as any).ticket_number;
-        submitted = true;
-        
-        // Reset form after 5 seconds
-        setTimeout(() => {
-          submitted = false;
-          ticketNumber = '';
-          formData = {
-            nombre: '',
-            telefono: '',
-            email: '',
-            direccion: '',
-            tipoConexion: '',
-            tipoPropiedad: '',
-            documentos: [],
-            comentarios: ''
-          };
-        }, 5000);
-      } else {
-        error = response.error || 'Error al enviar la solicitud';
-      }
-    } catch (err) {
-      console.error('Error submitting form:', err);
-      error = err instanceof Error ? err.message : 'Error al enviar la solicitud';
-    } finally {
+    // Simular envío
+    setTimeout(() => {
+      submitted = true;
       loading = false;
-    }
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        submitted = false;
+        formData = {
+          nombre: '',
+          telefono: '',
+          email: '',
+          direccion: '',
+          tipoConexion: '',
+          tipoPropiedad: '',
+          documentos: [],
+          comentarios: ''
+        };
+      }, 5000);
+    }, 1000);
   }
 </script>
 
@@ -171,7 +148,7 @@
               <CheckCircle size={48} />
               <h3>¡Solicitud Enviada!</h3>
               <p>Hemos recibido tu solicitud. Te contactaremos en los próximos días para coordinar la evaluación.</p>
-              <p class="ticket-number">Solicitud: #{ticketNumber}</p>
+              <p class="ticket-number">Solicitud enviada exitosamente</p>
             </div>
           {:else}
             <form on:submit|preventDefault={handleSubmit} class="connection-form">
