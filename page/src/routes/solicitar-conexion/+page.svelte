@@ -44,7 +44,7 @@
 </script>
 
 <svelte:head>
-  <title>Solicitar Conexión - EMPSAAT</title>
+  <title>Solicitar Conexión - Empresa Municipal Prestadora de Servicios de Agua Potable y Alcantarillado Sanitario Tupiza</title>
   <meta name="description" content="Solicita una nueva conexión de agua potable en Tupiza, Bolivia">
 </svelte:head>
 
@@ -253,9 +253,13 @@
         <h2>¿Necesitas Ayuda?</h2>
         <p>Nuestro equipo está disponible para resolver tus dudas sobre el proceso de conexión.</p>
         <div class="contact-buttons">
-          <a href="tel:+59126941234" class="contact-btn">
+          <a href="tel:+59126944636" class="contact-btn">
             <Phone size={20} />
-            Llamar Ahora
+            Tel: 26944636
+          </a>
+          <a href="tel:+59173327013" class="contact-btn">
+            <Phone size={20} />
+            Cel: 73327013
           </a>
           <a href="/contacto" class="contact-btn secondary">
             <MapPin size={20} />

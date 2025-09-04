@@ -1,7 +1,7 @@
-import sql from 'mssql';
+import {ConnectionPool} from 'mssql';
 
-// Configuración de la conexión
-console.log('DB_SERVER', process.env.DB_SERVER);
+// Configuración de la conexión usando connection string o parámetros individuales
+const connectionString = process.env.DB_CONNECTION_STRING!;
 const config = {
   user: process.env.DB_USER || 'sa',
   password: process.env.DB_PASSWORD || 'yourStrong(!)Password',
@@ -19,9 +19,19 @@ const config = {
   },
 };
 
+const parsedConfig = ConnectionPool.parseConnectionString(connectionString);
+parsedConfig.pool = {
+  max: 20,
+  min: 0,
+  idleTimeoutMillis: 30000,
+};
+
+console.log('parsedConfig', parsedConfig);
+
+console.log('config', config);
 
 // Crear el pool de conexiones
-const pool = new sql.ConnectionPool(config);
+const pool = new ConnectionPool(parsedConfig);
 const poolConnect = pool.connect()
   .then(() => console.log('Conexión establecida correctamente a SQL Server'))
   .catch(err => console.error('Error al conectar a la base de datos:', err));

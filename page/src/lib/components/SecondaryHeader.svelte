@@ -21,7 +21,7 @@
           <div class="logo-icon">
             <Droplets />
           </div>
-          <span class="logo-text">EMPSAAT</span>
+          <span class="logo-text">Empresa Municipal Prestadora de Servicios de Agua Potable y Alcantarillado Sanitario Tupiza</span>
         </a>
       </div>
 
